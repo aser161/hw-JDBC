@@ -75,6 +75,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 String gender = resultSet.getString("gender");
                 int age = Integer.parseInt(resultSet.getString("age"));
                 int city_id = Integer.parseInt(resultSet.getString("city_id"));
+                Employee employee = new Employee(id, first_name, last_name, gender, age, city_id);
+                employeeList.add(employee);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
