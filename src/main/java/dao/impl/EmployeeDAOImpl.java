@@ -68,6 +68,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 "SELECT * FROM employee"
         )){
             ResultSet resultSet = statement.executeQuery();
+
             while (resultSet.next()){
                 int id = Integer.parseInt(resultSet.getString("id"));
                 String first_name = resultSet.getString("first_name");

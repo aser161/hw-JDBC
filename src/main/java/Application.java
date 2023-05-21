@@ -15,9 +15,9 @@ public class Application {
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
             EmployeeDAO employeeDAO = new EmployeeDAOImpl(connection);
 
-//            Employee employee1 = new Employee(
-//                    1, "Jim", "Lee", "m", 58, 4);
-//            employeeDAO.create(employee1);
+            Employee employee1 = new Employee(
+                    1, "Jim", "Lee", "m", 58, 4);
+            employeeDAO.create(employee1);
 
             List<Employee>employees = employeeDAO.findAll();
 
