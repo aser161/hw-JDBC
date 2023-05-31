@@ -11,5 +11,7 @@ public interface EmployeeDAO {
 
     List<Employee> findAll();
 
-    void updateCity_idById(int id, int city_id);
+    void update(Employee employee);
+
+    void delete(Employee employee);
 }
