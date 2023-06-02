@@ -1,55 +1,53 @@
 package dao.impl;
 
 import Utils.HibernateSessionFactoryUtil;
-import dao.EmployeeDAO;
+import dao.CityDAO;
+import model.City;
 import model.Employee;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class EmployeeDAOImpl implements EmployeeDAO {
-
+public class CityDAOImpl implements CityDAO {
     @Override
-    public void create(Employee employee) {
+    public void create(City city) {
         try (Session session = HibernateSessionFactoryUtil
                 .getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(employee);
+            session.save(city);
             transaction.commit();
         }
     }
 
     @Override
-    public Employee findById(int id) {
+    public City findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory()
-                .openSession().get(Employee.class, id);
+                .openSession().get(City.class, id);
     }
 
     @Override
-    public List<Employee> findAll() {
-        return (List<Employee>) HibernateSessionFactoryUtil
-                .getSessionFactory().openSession().createQuery("FROM Employee").list();
+    public List<City> findAll() {
+        return (List<City>) HibernateSessionFactoryUtil
+                .getSessionFactory().openSession().createQuery("FROM City").list();
     }
 
     @Override
-    public void update(Employee employee) {
-
+    public void update(City city) {
         try (Session session = HibernateSessionFactoryUtil
                 .getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.update(employee);
+            session.update(city);
             transaction.commit();
         }
     }
 
     @Override
-    public void delete(Employee employee) {
-
+    public void delete(City city) {
         try (Session session = HibernateSessionFactoryUtil
                 .getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.delete(employee);
+            session.delete(city);
             transaction.commit();
         }
     }
