@@ -14,17 +14,20 @@ public class Application {
         CityDAO cityDAO = new CityDAOImpl();
 
         EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-//
-//
-//        Employee employee1 = new Employee(
-//                1, "Jim", "Lee", "m", 58, 4);
-//        employeeDAO.create(employee1);
-//
-//        List<Employee> employees = employeeDAO.findAll();
-//
-//        for (Employee employee : employees) {
-//            System.out.println(employee);
-//        }
-//        cityDAO.create(new City("Moscow"));
+
+
+        Employee employee1 = new Employee(
+                1, "Jim", "Lee", "m", 58, cityDAO.findById(4));
+        employeeDAO.create(employee1);
+
+        List<Employee> employees = employeeDAO.findAll();
+
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+        cityDAO.create(new City("Moscow"));
+        City byId = cityDAO.findById(1);
+        System.out.println(byId);
+        System.out.println(employeeDAO.findById(2));
     }
 }
